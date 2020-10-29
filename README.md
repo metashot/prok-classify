@@ -47,7 +47,7 @@ Several files and directories will be created in the `results` folder.
 
 ### Secondary outputs
 - `gtdbtk`: main gtdb output files
-  ([documentation](https://ecogenomics.github.io/GTDBTk/files/index.html).
+  ([documentation](https://ecogenomics.github.io/GTDBTk/files/index.html)).
  
 ## System requirements
 Each step in the pipeline has a default set of requirements for number of CPUs,
