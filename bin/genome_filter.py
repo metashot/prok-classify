@@ -25,7 +25,7 @@ try:
     gtdb_bac_summary_df = \
         pd.read_table(GTDB_BAC_SUMMARY, sep='\t', header=0, engine='python')
 except pd.errors.EmptyDataError:
-    continue
+    pass
 else:
     for index, row in gtdb_bac_summary_df.iterrows():
         genome_fn = os.path.join(INPUT_GENOMES_DIR, row["user_genome"])
@@ -43,7 +43,7 @@ try:
     gtdb_ar_summary_df = \
         pd.read_table(GTDB_AR_SUMMARY, sep='\t', header=0, engine='python')
 except pd.errors.EmptyDataError:
-    continue
+    pass
 else:
     for index, row in gtdb_ar_summary_df.iterrows():
         genome_fn = os.path.join(INPUT_GENOMES_DIR, row["user_genome"])
