@@ -11,7 +11,7 @@ workflow {
         .fromPath( params.genomes )
         .set { genomes_ch }
 
-    gtdbtk_db = file(params.gtdbtk_db, type: 'dir')
+    gtdbtk_db = file(params.gtdbtk_db, type: 'dir', checkIfExists: true)
 
     gtdbtk(genomes_ch.collect(), gtdbtk_db)
     
