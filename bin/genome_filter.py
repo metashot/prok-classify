@@ -21,12 +21,15 @@ try:
 except FileExistsError:
     pass
 
-gtdb_bac_summary_df = \
-    pd.read_table(GTDB_BAC_SUMMARY, sep='\t', header=0, engine='python')
-
-for index, row in gtdb_bac_summary_df.iterrows():
-    genome_fn = os.path.join(INPUT_GENOMES_DIR, row["user_genome"])
-    shutil.copy(genome_fn, BAC_GENOMES_DIR)
+try:
+    gtdb_bac_summary_df = \
+        pd.read_table(GTDB_BAC_SUMMARY, sep='\t', header=0, engine='python')
+except pd.errors.EmptyDataError:
+    continue
+else:
+    for index, row in gtdb_bac_summary_df.iterrows():
+        genome_fn = os.path.join(INPUT_GENOMES_DIR, row["user_genome"])
+        shutil.copy(genome_fn, BAC_GENOMES_DIR)
 
 # Archaea
 AR_GENOMES_DIR = os.path.join(OUTPUT_GENOMES_DIR, "archaea_genomes")
@@ -36,9 +39,12 @@ try:
 except FileExistsError:
     pass
 
-gtdb_ar_summary_df = \
-    pd.read_table(GTDB_AR_SUMMARY, sep='\t', header=0, engine='python')
-
-for index, row in gtdb_ar_summary_df.iterrows():
-    genome_fn = os.path.join(INPUT_GENOMES_DIR, row["user_genome"])
-    shutil.copy(genome_fn, AR_GENOMES_DIR)
+try:
+    gtdb_ar_summary_df = \
+        pd.read_table(GTDB_AR_SUMMARY, sep='\t', header=0, engine='python')
+except pd.errors.EmptyDataError:
+    continue
+else:
+    for index, row in gtdb_ar_summary_df.iterrows():
+        genome_fn = os.path.join(INPUT_GENOMES_DIR, row["user_genome"])
+        shutil.copy(genome_fn, AR_GENOMES_DIR)
