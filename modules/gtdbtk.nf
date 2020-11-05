@@ -33,5 +33,13 @@ process gtdbtk {
         -x fa \
         --cpus ${task.cpus} \
         --pplacer_cpus ${task.cpus}
+
+    if [ ! -f gtdbtk/gtdbtk.bac120.summary.tsv ]; then
+        touch gtdbtk/gtdbtk.bac120.summary.tsv
+    fi
+
+    if [ ! -f gtdbtk/gtdbtk.ar122.summary.tsv ]; then
+        touch gtdbtk/gtdbtk.ar122.summary.tsv
+    fi
     """
 }
