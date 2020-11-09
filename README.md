@@ -1,8 +1,8 @@
 # metashot/gtdbtk Nextflow
 
 ## Introduction
-metashot/gtdbtk is a workflow assigning objective taxonomic classifications to
-bacterial and archaeal genomes based on
+metashot/gtdbtk is a workflow for assigning objective taxonomic classifications
+to bacterial and archaeal genomes using
 [GTDB-TK](https://github.com/Ecogenomics/GTDBTk) and the Genome Database
 Taxonomy GTDB.
 
@@ -25,9 +25,9 @@ Taxonomy GTDB.
 1. Start running the analysis:
 
   ```bash
-  nextflow run metashot/gtdbtk 
-    --genomes "data/*.fa"
-    --gtdbtk_db ./release95
+  nextflow run metashot/gtdbtk \
+    --genomes "data/*.fa" \
+    --gtdbtk_db ./release95 \
     --outdir results
   ```
 
