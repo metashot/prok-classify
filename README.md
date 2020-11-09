@@ -25,7 +25,7 @@ Taxonomy GTDB.
 1. Start running the analysis:
 
   ```bash
-  nextflow run metashot/gtdbtk \
+  nextflow run metashot/prok-classify \
     --genomes "data/*.fa" \
     --gtdbtk_db ./release95 \
     --outdir results
