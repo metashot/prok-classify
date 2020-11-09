@@ -1,4 +1,4 @@
-# metashot/gtdbtk Nextflow
+# metashot/prok-classify
 
 ## Introduction
 metashot/gtdbtk is a workflow for assigning objective taxonomic classifications
