@@ -1,10 +1,11 @@
 # metashot/prok-classify
 
-## Introduction
-metashot/gtdbtk is a workflow for assigning objective taxonomic classifications
-to bacterial and archaeal genomes using
-[GTDB-TK](https://github.com/Ecogenomics/GTDBTk) and the Genome Database
-Taxonomy GTDB.
+metashot/prok-clas sify is a workflow for assigning objective taxonomic
+classifications to bacterial and archaeal genomes using GTDB-Tk and the Genome
+Database Taxonomy GTDB.
+
+- [Documentation](https://metashot.github.io/workflows/prok-classify)
+- [MetaShot Home](https://metashot.github.io/)
 
 ## Main features
 
