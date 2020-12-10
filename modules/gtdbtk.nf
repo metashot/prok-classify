@@ -78,6 +78,7 @@ process classify {
         --genome_dir genomes_dir \
         --align_dir align_dir \
         --out_dir gtdbtk \
+        -x fa \
         --cpus ${task.cpus}
 
     if [ ! -f gtdbtk/gtdbtk.bac120.summary.tsv ]; then
