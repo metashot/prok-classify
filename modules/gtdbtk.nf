@@ -57,6 +57,7 @@ process classify {
         }
 
     input:
+    path(genomes)
     path "align_dir"
     path(gtdbtk_db)
 
@@ -66,8 +67,15 @@ process classify {
     path "gtdbtk/gtdbtk.ar122.summary.tsv", emit: gtdb_ar_summary
        
     script:
-    """ 
+    """
+    mkdir -p genomes_dir
+    for genome in $genomes
+    do
+        mv \$genome genomes_dir/\${genome}.fa
+    done
+
     GTDBTK_DATA_PATH=${gtdbtk_db} gtdbtk classify \
+        --genome_dir genomes_dir \
         --align_dir align_dir \
         --out_dir gtdbtk \
         --cpus ${task.cpus}
