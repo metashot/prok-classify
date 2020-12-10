@@ -10,6 +10,7 @@ process identify {
 
     output:
     path "gtdbtk", emit: dir
+    path "gtdbtk/*"
        
     script:
     """
@@ -37,6 +38,7 @@ process align {
 
     output:
     path "gtdbtk", emit: dir
+    path "gtdbtk/*"
        
     script:
     """ 
