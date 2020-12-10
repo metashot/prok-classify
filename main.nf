@@ -16,7 +16,7 @@ workflow {
     // gtdb-tk pipeline (classify_wf)
     identify(genomes_ch.collect(), gtdbtk_db)
     align(identify.out.dir, gtdbtk_db)
-    classify(align.out.dir, gtdbtk_db)
+    classify(genomes_ch.collect(), align.out.dir, gtdbtk_db)
 
     genome_filter(classify.out.gtdb_bac_summary, 
         classify.out.gtdb_ar_summary, genomes_ch.collect())
