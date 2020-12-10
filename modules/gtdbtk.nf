@@ -32,7 +32,7 @@ process align {
         pattern: 'gtdbtk/gtdbtk.*'
 
     input:
-    path "identify_dir" from identify_dir
+    path "identify_dir"
     path(gtdbtk_db)
 
     output:
@@ -57,7 +57,7 @@ process classify {
         }
 
     input:
-    path "align_dir" from align_dir
+    path "align_dir"
     path(gtdbtk_db)
 
     output:
