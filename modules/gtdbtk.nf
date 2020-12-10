@@ -67,7 +67,7 @@ process classify {
        
     script:
     """ 
-    GTDBTK_DATA_PATH=${gtdbtk_db} gtdbtk align \
+    GTDBTK_DATA_PATH=${gtdbtk_db} gtdbtk classify \
         --align_dir align_dir \
         --out_dir gtdbtk \
         --cpus ${task.cpus}
