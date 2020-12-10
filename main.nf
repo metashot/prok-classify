@@ -19,6 +19,6 @@ workflow {
     classify(align.out.dir, gtdbtk_db)
 
     genome_filter(classify.out.gtdb_bac_summary, 
-        gtdbtk.out.gtdb_ar_summary, genomes_ch.collect())
+        classify.out.gtdb_ar_summary, genomes_ch.collect())
 
 }
