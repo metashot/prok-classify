@@ -2,7 +2,7 @@
 
 nextflow.enable.dsl=2
 
-include { gtdbtk } from './modules/gtdbtk'
+include { identify; align; classify } from './modules/gtdbtk'
 include { genome_filter } from './modules/utils'
 
 workflow {
