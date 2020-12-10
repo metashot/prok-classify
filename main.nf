@@ -13,9 +13,12 @@ workflow {
 
     gtdbtk_db = file(params.gtdbtk_db, type: 'dir', checkIfExists: true)
 
-    gtdbtk(genomes_ch.collect(), gtdbtk_db)
-    
-    genome_filter(gtdbtk.out.gtdb_bac_summary, 
+    // gtdb-tk pipeline (classify_wf)
+    identify(genomes_ch.collect(), gtdbtk_db)
+    align(identify.out.dir, gtdbtk_db)
+    classify(align.out.dir, gtdbtk_db)
+
+    genome_filter(classify.out.gtdb_bac_summary, 
         gtdbtk.out.gtdb_ar_summary, genomes_ch.collect())
 
 }
