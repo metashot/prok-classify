@@ -68,6 +68,7 @@ process classify {
     path "gtdbtk/gtdbtk.bac120.summary.tsv", emit: gtdb_bac_summary
     path "gtdbtk/gtdbtk.ar122.summary.tsv", emit: gtdb_ar_summary
        
+    // see: https://github.com/Ecogenomics/GTDBTk/issues/124
     script:
     """
     mkdir -p genomes_dir
@@ -81,7 +82,8 @@ process classify {
         --align_dir align_dir \
         --out_dir gtdbtk \
         -x fa \
-        --cpus ${task.cpus}
+        --cpus ${task.cpus} \
+        --pplacer_cpus 1
 
     if [ ! -f gtdbtk/gtdbtk.bac120.summary.tsv ]; then
         touch gtdbtk/gtdbtk.bac120.summary.tsv
