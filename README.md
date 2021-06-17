@@ -22,15 +22,15 @@ Taxonomy GTDB.
    https://ecogenomics.github.io/GTDBTk/installing/index.html#gtdb-tk-reference-data):
 
    ```bash
-   wget https://data.ace.uq.edu.au/public/gtdb/data/releases/release95/95.0/auxillary_files/gtdbtk_r95_data.tar.gz
-   tar xvzf gtdbtk_r95_data.tar.gz
+   wget https://data.gtdb.ecogenomic.org/releases/latest/auxillary_files/gtdbtk_data.tar.gz
+   tar -xvzf gtdbtk_data.tar.gz
    ```
 1. Start running the analysis:
 
    ```bash
    nextflow run metashot/prok-classify \
      --genomes "data/*.fa" \
-     --gtdbtk_db ./release95 \
+     --gtdbtk_db ./release202 \
      --outdir results
    ```
 
@@ -51,7 +51,7 @@ after the pipeline has finished.
 - `archaea_genomes`: genomes classified as archaea by GTDB-Tk.
 
 ### Secondary outputs
-- `gtdbtk`: main gtdb output files
+- `gtdbtk`: main GTDB-Tk output files
   ([documentation](https://ecogenomics.github.io/GTDBTk/files/index.html)).
 
 ## System requirements
