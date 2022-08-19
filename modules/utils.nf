@@ -1,8 +1,6 @@
 nextflow.enable.dsl=2
 
 
-// Params:
-//     - outdir
 process genome_filter {
     publishDir "${params.outdir}" , mode: 'copy'
 

@@ -11,7 +11,8 @@ Taxonomy GTDB.
 
 - Input: prokaryotic genomes in FASTA format;
 - Taxonomic classification using
-  [GTDB-TK](https://github.com/Ecogenomics/GTDBTk);
+  [GTDB-TK](https://github.com/Ecogenomics/GTDBTk) version 2.1.0 (**requires
+  GTDB reference R207_v2**);
 - Filter genomes by domain (Bacteria and Achaea).
 
 ## Quick start
@@ -20,17 +21,17 @@ Taxonomy GTDB.
    [Dependences](https://metashot.github.io/#dependencies));
 1. Download and extract/unzip the GTDB-TK reference data (see
    https://ecogenomics.github.io/GTDBTk/installing/index.html#gtdb-tk-reference-data):
-
+   
    ```bash
-   wget https://data.gtdb.ecogenomic.org/releases/latest/auxillary_files/gtdbtk_data.tar.gz
-   tar -xvzf gtdbtk_data.tar.gz
+   wget https://data.gtdb.ecogenomic.org/releases/release207/207.0/auxillary_files/gtdbtk_r207_v2_data.tar.gz
+   tar -xvzf gtdbtk_r207_v2_data.tar.gz
    ```
 1. Start running the analysis:
 
    ```bash
    nextflow run metashot/prok-classify \
      --genomes "data/*.fa" \
-     --gtdbtk_db ./release202 \
+     --gtdbtk_db ./release207_v2 \
      --outdir results
    ```
 

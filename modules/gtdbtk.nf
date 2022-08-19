@@ -15,6 +15,7 @@ process identify {
     script:
     """
     mkdir -p genomes_dir
+    mkdir -p tmp
     for genome in $genomes
     do
         mv \$genome genomes_dir/\${genome}.fa
@@ -24,7 +25,10 @@ process identify {
         --genome_dir genomes_dir \
         --out_dir gtdbtk \
         -x fa \
-        --cpus ${task.cpus}
+        --cpus ${task.cpus} \
+        --tmpdir ./tmp
+    
+    rm -rf ./tmp
     """
 }
 
@@ -42,10 +46,16 @@ process align {
        
     script:
     """ 
+    mkdir -p tmp
+
     GTDBTK_DATA_PATH=${gtdbtk_db} gtdbtk align \
         --identify_dir identify_dir \
         --out_dir gtdbtk \
-        --cpus ${task.cpus}
+        --cpus ${task.cpus} \
+        --rnd_seed 42 \
+        --tmpdir ./tmp
+    
+    rm -rf ./tmp
     """
 }
 
@@ -72,6 +82,7 @@ process classify {
     script:
     """
     mkdir -p genomes_dir
+    mkdir -p tmp
     for genome in $genomes
     do
         mv \$genome genomes_dir/\${genome}.fa
@@ -83,7 +94,8 @@ process classify {
         --out_dir gtdbtk \
         -x fa \
         --cpus ${task.cpus} \
-        --pplacer_cpus 1
+        --pplacer_cpus 1 \
+        --tmpdir ./tmp
 
     if [ ! -f gtdbtk/gtdbtk.bac120.summary.tsv ]; then
         touch gtdbtk/gtdbtk.bac120.summary.tsv
@@ -92,5 +104,7 @@ process classify {
     if [ ! -f gtdbtk/gtdbtk.ar122.summary.tsv ]; then
         touch gtdbtk/gtdbtk.ar122.summary.tsv
     fi
+
+    rm -rf ./tmp
     """
 }
