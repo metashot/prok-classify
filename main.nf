@@ -15,7 +15,9 @@ workflow {
 
     gtdbtk_classify_wf(genomes_ch.collect(), gtdbtk_db)
 
-    genome_filter(classify.out.gtdb_bac_summary, 
-        classify.out.gtdb_ar_summary, genomes_ch.collect())
+    genome_filter(
+        gtdbtk_classify_wf.out.gtdb_bac_summary, 
+        gtdbtk_classify_wf.out.gtdb_ar_summary,
+        genomes_ch.collect())
 
 }
