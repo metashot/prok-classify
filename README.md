@@ -11,7 +11,7 @@ Taxonomy GTDB.
 
 - Input: prokaryotic genomes in FASTA format;
 - Taxonomic classification using
-  [GTDB-TK](https://github.com/Ecogenomics/GTDBTk) version 2.1.0 (**requires
+  [GTDB-TK](https://github.com/Ecogenomics/GTDBTk) version 2.1.1 (**requires
   GTDB reference R207_v2**);
 - Filter genomes by domain (Bacteria and Achaea).
 
