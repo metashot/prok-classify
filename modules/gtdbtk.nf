@@ -2,7 +2,7 @@ nextflow.enable.dsl=2
 
 process gtdbtk_classify_wf {
     publishDir "${params.outdir}" , mode: 'copy' ,
-        pattern: 'gtdbtk/gtdbtk.*'
+        pattern: 'gtdbtk/**'
 
     publishDir "${params.outdir}" , mode: 'copy' ,
         saveAs: { filename ->
@@ -15,7 +15,7 @@ process gtdbtk_classify_wf {
     path(gtdbtk_db)
 
     output:
-    path "gtdbtk/*"
+    path "gtdbtk/**"
     path "gtdbtk/gtdbtk.bac120.summary.tsv", emit: gtdb_bac_summary
     path "gtdbtk/gtdbtk.ar53.summary.tsv", emit: gtdb_ar_summary
        
